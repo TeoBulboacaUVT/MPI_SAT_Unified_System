@@ -1,4 +1,4 @@
-#include "DIMACSParser.h"
+#include "./DIMACSParser.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>

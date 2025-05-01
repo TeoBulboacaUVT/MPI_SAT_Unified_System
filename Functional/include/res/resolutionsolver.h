@@ -3,7 +3,7 @@
 
 
 #include <set>
-#include "satsolver.h"
+#include "../general/satsolver.h"
 
 class ResolutionSolver : public SATSolver {
     public:

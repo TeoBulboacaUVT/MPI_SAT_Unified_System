@@ -1,5 +1,5 @@
-#include "satsolver.h"
-#include "DIMACSParser.h"
+#include "./satsolver.h"
+#include "../parser/DIMACSParser.h"
 #include <algorithm> // For std::remove
 
 

@@ -1,5 +1,5 @@
-#include "DIMACSParser.h"
-#include "SATSolver.h"
+#include "../parser/DIMACSParser.h"
+#include "../satsolver.h"
 
 class DPSolver : public SATSolver {
 private:

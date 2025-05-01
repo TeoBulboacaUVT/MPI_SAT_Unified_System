@@ -47,7 +47,7 @@ int main() {
                 continue;
             }
 
-            cout << "\nTesting DP Solver on file: " << filename << endl;
+            cout << "\nTesting dp Solver on file: " << filename << endl;
             cout << "----------------------------------------" << endl;
             
             auto start = chrono::high_resolution_clock::now();

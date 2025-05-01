@@ -1,5 +1,5 @@
-#include "resolutionsolver.h"
-#include "satsolver.h"
+#include "./resolutionsolver.h"
+#include "../general/satsolver.h"
 #include <iostream>
 #include <set>
 #include <vector>

@@ -1,4 +1,4 @@
-#include "SATSolver.h"
+#include "../general/satsolver.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>

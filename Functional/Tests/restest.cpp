@@ -1,6 +1,6 @@
-#include "resolutionsolver.h"
-#include "satsolver.h"
-#include "DIMACSParser.h"
+#include "../include/res/resolutionsolver.h"
+#include "../include/general/satsolver.h"
+#include "../include/parser/DIMACSParser.h"
 
 #include <iostream>
 #include <vector>

@@ -1,4 +1,4 @@
-#include "dpllsolver.h"
+#include "./dpllsolver.h"
 #include <iostream>
 using namespace std;
 

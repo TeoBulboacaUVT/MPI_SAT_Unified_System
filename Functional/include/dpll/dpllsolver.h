@@ -1,5 +1,5 @@
 
-#include "SATSolver.h"
+#include "../general/satsolver.h"
 #include <vector>
 #include <set>
 #include <string>

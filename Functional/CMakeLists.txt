@@ -4,9 +4,9 @@ project(MPI_SAT_Unified)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(MPI_SAT_Unified
-        restest.cpp
-        resolutionsolver.cpp
-        satsolver.cpp
-        DIMACSParser.cpp
+        Tests/restest.cpp
+        include/res/resolutionsolver.cpp
+        include/general/satsolver.cpp
+        include/parser/DIMACSParser.cpp
 
 )
