@@ -1,0 +1,8 @@
+# ninja log v6
+5	1488	7678041930681728	CMakeFiles/MPI_SAT_Unified.dir/restest.cpp.obj	4d81209d7980626c
+21	349	7678046120752450	build.ninja	310eb8f5282909e7
+26	1083	7678045770184850	CMakeFiles/MPI_SAT_Unified.dir/satsolver.cpp.obj	e3cc3e0a494187f3
+24	1136	7678045954222524	CMakeFiles/MPI_SAT_Unified.dir/resolutionsolver.cpp.obj	42f0e0d3f1d32a66
+21	368	7678046120752450	build.ninja	310eb8f5282909e7
+24	778	7678046121864484	CMakeFiles/MPI_SAT_Unified.dir/DIMACSParser.cpp.obj	30da9e555b34244c
+778	988	7678046129407350	MPI_SAT_Unified.exe	c5c059d2a0e03c74
