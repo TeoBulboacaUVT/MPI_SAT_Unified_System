@@ -23,31 +23,59 @@ std::vector<int> DPLLSolver::getAssignment() const {
 }
 
 bool DPLLSolver::dpllRecursive(vector<int>& assignment) {
-    // Unit propagation
-    unitPropagation(assignment);
+    bool changed;
+    do {
+        changed = false;
+        
+        // Store size before unit propagation
+        size_t beforeUP = assignment.size();
+        unitPropagation(assignment);  // Using SATSolver's implementation
+        if (checkEmptyClause()) {
+            cout << "[DEBUG] Empty clause found after unit propagation" << endl;
+            return false;
+        }
+        changed |= (assignment.size() > beforeUP);
+        
+        // Store size before pure literal elimination
+        size_t beforePL = assignment.size();
+        eliminatePureLiterals(assignment);  // Using SATSolver's implementation
+        if (checkEmptyClause()) {
+            cout << "[DEBUG] Empty clause found after pure literal elimination" << endl;
+            return false;
+        }
+        changed |= (assignment.size() > beforePL);
+        
+    } while (changed);
 
-    // Satisfied?
-    if (clauses.empty()) return true;
+    // Check if all clauses are satisfied
+    if (clauses.empty()) {
+        cout << "[DEBUG] All clauses satisfied" << endl;
+        return true;
+    }
 
-    // Contradiction?
-    if (checkEmptyClause()) return false;
-
-    // Choose a literal to branch on
+    // Choose next literal (we can improve this later)
     int literal = chooseLiteral();
-    if (literal == 0) return false; // Defensive
+    if (literal == 0) {
+        cout << "[DEBUG] No literal to choose" << endl;
+        return false;
+    }
 
-    // Save state
+    cout << "[DEBUG] Branching on literal: " << literal << endl;
+
+    // Save current state
     auto savedClauses = clauses;
+    
+    // Try positive literal
     assignment.push_back(literal);
     if (dpllRecursive(assignment)) return true;
 
-    // Backtrack and try negation
-    assignment.pop_back();
+    // Restore state and try negative literal
     clauses = savedClauses;
+    assignment.pop_back();
     assignment.push_back(-literal);
     if (dpllRecursive(assignment)) return true;
 
-    // Backtrack
+    // If both branches failed, backtrack
     assignment.pop_back();
     clauses = savedClauses;
     return false;

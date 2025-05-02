@@ -28,7 +28,10 @@ public:
     int getNumLiterals() const { return numLiterals; }
     int getNumClauses() const { return numClauses; }
 
+    void addToAssignment(int literal);
+
     vector<vector<int>> clauses;
+    vector<int> assignment;
 
 protected:
     int numLiterals;

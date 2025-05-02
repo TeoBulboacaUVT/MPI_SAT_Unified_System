@@ -7,38 +7,8 @@
 #include <set>
 using namespace std;
 
-    vector<int> assignment;
 
-    void DPSolver::addToAssignment(int var) {
-    assignment.push_back(var);
-    
-    // Create a new vector for updated clauses
-    vector<vector<int>> newClauses;
-    
-    for (const auto& clause : clauses) {
-        // If clause contains the literal, it's satisfied
-        if (find(clause.begin(), clause.end(), var) != clause.end()) {
-            continue;
-        }
-        
-        // If clause contains the negation, remove just that literal
-        vector<int> newClause;
-        for (int lit : clause) {
-            if (lit != -var) {
-                newClause.push_back(lit);
-            }
-        }
-        
-        // Only add non-empty clauses
-        if (!newClause.empty()) {
-            newClauses.push_back(newClause);
-        }
-    }
-    
-    clauses = newClauses;
-}
-
-    bool DPSolver::solve() {
+bool DPSolver::solve() {
         // Apply unit propagation and pure literal elimination
         unitPropagation(assignment);
         eliminatePureLiterals(assignment);
@@ -232,8 +202,69 @@ vector<vector<int>> DPSolver::singleStep(const vector<vector<int>>& clauseSet) {
         cout << "[DEBUG] Current clause count: " << clauses.size() << endl;
         printClauses();
     }
+        if (!clauses.empty()) {
+            cout << "[DEBUG] Making assignments for remaining variables..." << endl;
 
-    // If we get here, all clauses are satisfied
-    cout << "[DEBUG] All clauses processed. Formula is SAT." << endl;
+            // Create a set of variables already assigned
+            set<int> assignedVars;
+            for (int lit : assignment) {
+                assignedVars.insert(abs(lit));
+            }
+
+            // Handle remaining clauses
+            for (const auto& clause : clauses) {
+                // For each clause, assign its first literal if the variable isn't already assigned
+                for (int lit : clause) {
+                    int var = abs(lit);
+                    if (assignedVars.find(var) == assignedVars.end()) {
+                        assignment.push_back(lit);  // Add the literal (not just the variable)
+                        assignedVars.insert(var);
+                        break;
+                    }
+                }
+            }
+
+            cout << "[DEBUG] Final assignment after handling remaining clauses: ";
+            for (int lit : assignment) {
+                cout << lit << " ";
+            }
+            cout << endl;
+        }
+
+        cout << "[DEBUG] All clauses processed. Formula is SAT." << endl;
+        return true;
+
+}
+
+
+// Add function to verify solution
+bool DPSolver::verifySolution(const vector<int>& assignment, const vector<vector<int>>& originalClauses) {
+    cout << "\nVerifying solution..." << endl;
+    cout << "Assignment: ";
+    for (int lit : assignment) {
+        cout << lit << " ";
+    }
+    cout << endl;
+
+    for (const auto& clause : originalClauses) {
+        cout << "Checking clause: ";
+        for (int lit : clause) {
+            cout << lit << " ";
+        }
+        cout << endl;
+
+        bool clauseSatisfied = false;
+        for (int literal : clause) {
+            if (find(assignment.begin(), assignment.end(), literal) != assignment.end()) {
+                cout << "Clause satisfied by literal: " << literal << endl;
+                clauseSatisfied = true;
+                break;
+            }
+        }
+        if (!clauseSatisfied) {
+            cout << "Clause not satisfied!" << endl;
+            return false;
+        }
+    }
     return true;
 }

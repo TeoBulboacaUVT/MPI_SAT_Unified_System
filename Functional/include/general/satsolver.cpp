@@ -200,3 +200,34 @@ void SATSolver::printClauses() const {
 vector<vector<int>> SATSolver::getClauses() const {
     return clauses;
 }
+
+
+
+void SATSolver::addToAssignment(int var) {
+    assignment.push_back(var);
+
+    // Create a new vector for updated clauses
+    vector<vector<int>> newClauses;
+
+    for (const auto& clause : clauses) {
+        // If clause contains the literal, it's satisfied
+        if (find(clause.begin(), clause.end(), var) != clause.end()) {
+            continue;
+        }
+
+        // If clause contains the negation, remove just that literal
+        vector<int> newClause;
+        for (int lit : clause) {
+            if (lit != -var) {
+                newClause.push_back(lit);
+            }
+        }
+
+        // Only add non-empty clauses
+        if (!newClause.empty()) {
+            newClauses.push_back(newClause);
+        }
+    }
+
+    clauses = newClauses;
+}

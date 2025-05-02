@@ -12,24 +12,10 @@ bool isFileAccessible(const string& filename) {
     return file.good();
 }
 
-// Add function to verify solution
-bool verifySolution(const vector<int>& assignment, const vector<vector<int>>& originalClauses) {
-    for (const auto& clause : originalClauses) {
-        bool clauseSatisfied = false;
-        for (int literal : clause) {
-            if (find(assignment.begin(), assignment.end(), literal) != assignment.end()) {
-                clauseSatisfied = true;
-                break;
-            }
-        }
-        if (!clauseSatisfied) return false;
-    }
-    return true;
-}
 
 int main() {
     vector<string> testFiles2 = {
-        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIM\\tensat.cnf"
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIM\\aim-50-1_6-no-1.cnf"
     };
 
     for (const auto& filename : testFiles2) {
@@ -66,7 +52,7 @@ int main() {
             cout << "\nSolving time: " << duration.count() << "ms" << endl;
             
             if (result) {
-                bool verified = verifySolution(assignment, originalClauses);
+                bool verified = solver.verifySolution(assignment, originalClauses);
                 cout << "Solution verification: " << (verified ? "VALID" : "INVALID") << endl;
                 
                 if (!verified) {

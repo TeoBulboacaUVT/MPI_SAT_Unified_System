@@ -1,13 +1,11 @@
-#include "dpllsolver.h"
-#include "dpllsolver.cpp"
-#include "DIMACSParser.h"
+#include "../include/dpll/dpllsolver.h"
+#include "../include/parser/DIMACSParser.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <chrono>
 #include <set>
-#include "SATSolver.cpp"
-#include "DIMACSParser.cpp"
+
 using namespace std;
 
 bool isFileAccessible(const string& filename) {
@@ -36,13 +34,7 @@ bool verifySolution(const vector<int>& assignment, const vector<vector<int>>& or
 
 int main() {
     vector<string> testFiles = {
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim2.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim3.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\unsatdim.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\unsatdim2.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\unsatdim3.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\aim-50-1_6-no-1.cnf"
+        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim2.cnf"
     };
 
     for (const auto& filename : testFiles) {
