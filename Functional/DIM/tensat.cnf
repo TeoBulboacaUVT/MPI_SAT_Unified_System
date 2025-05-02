@@ -1,4 +1,4 @@
-c Satisfiable formula with 10 literals and 10 clauses
+c SAT formula with 10 literals and 10 clauses
 p cnf 10 10
 1 2 0
 -1 3 0

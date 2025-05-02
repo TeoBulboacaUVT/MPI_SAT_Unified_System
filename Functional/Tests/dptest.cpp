@@ -1,6 +1,6 @@
-#include "dpsolver.cpp"
-#include "SATSolver.cpp"
-#include "DIMACSParser.cpp"
+#include "../include/dp/dpsolver.h"
+#include "../include/general/satsolver.h"
+#include "../include/parser/DIMACSParser.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -28,16 +28,8 @@ bool verifySolution(const vector<int>& assignment, const vector<vector<int>>& or
 }
 
 int main() {
-    vector<string> testFiles1 = {
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim2.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim3.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\unsatdim.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\unsatdim2.cnf",
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\unsatdim3.cnf"
-    };
     vector<string> testFiles2 = {
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\aim-50-1_6-no-1.cnf"
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIM\\tensat.cnf"
     };
 
     for (const auto& filename : testFiles2) {
@@ -64,7 +56,7 @@ int main() {
                 cout << "Warning: Large formula detected. This might take a while..." << endl;
             }
             
-            bool result = solver.solve();
+            bool result = solver.solve_new();
             auto assignment = solver.getAssignment();
             
             

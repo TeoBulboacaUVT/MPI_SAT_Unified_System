@@ -28,10 +28,11 @@ public:
     int getNumLiterals() const { return numLiterals; }
     int getNumClauses() const { return numClauses; }
 
+    vector<vector<int>> clauses;
+
 protected:
     int numLiterals;
     int numClauses;
-    vector<vector<int>> clauses;
 };
 
 #endif // SATSOLVER_H

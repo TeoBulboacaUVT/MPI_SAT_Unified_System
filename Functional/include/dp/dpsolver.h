@@ -1,5 +1,5 @@
 #include "../parser/DIMACSParser.h"
-#include "../satsolver.h"
+#include "../general/satsolver.h"
 
 class DPSolver : public SATSolver {
 private:
@@ -7,6 +7,8 @@ private:
     vector<int> assignment;
     bool simplifyFormula(int literal);
     bool checkContradiction() const;
+
+
 public:
     DPSolver(const string& filename) : SATSolver(filename), parser(filename) {}
 
@@ -18,9 +20,13 @@ public:
         return parser.getNumClauses();
     }
 
-    vector<int> getAssignment() const { return assignment; }
-    void addToAssignment(int literal) { assignment.push_back(literal); }
+    vector<int> getAssignment() const ;
+    void addToAssignment(int literal);
+
+    vector<vector<int>> singleStep(const vector<vector<int>>& clauseSet);
 
 
     bool solve();
+
+    bool solve_new();
 };

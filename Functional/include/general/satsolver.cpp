@@ -1,7 +1,7 @@
 #include "./satsolver.h"
 #include "../parser/DIMACSParser.h"
 #include <algorithm> // For std::remove
-
+#include <map>
 
 // Constructor to initialize SATSolver with DIMACSParser
 SATSolver::SATSolver(const string& filename) {
@@ -77,40 +77,73 @@ void SATSolver::unitPropagation(vector<int>& assignment) {
     cout << "[DEBUG] Unit propagation completed." << endl;
 }
 
-// Utility: Eliminate pure literals
 void SATSolver::eliminatePureLiterals(vector<int>& assignment) {
-    cout << "[DEBUG] Starting pure literal elimination..." << endl;
-    vector<int> literalCounts(numLiterals + 1, 0);
-
-    // Count occurrences of each literal
-    for (const auto& clause : clauses) {
-        for (int literal : clause) {
-            literalCounts[abs(literal)] += (literal > 0) ? 1 : -1;
+    bool changed;
+    do {
+        changed = false;
+        map<int, int> literalCount;  // tracks positive and negative occurrences
+        
+        // Count occurrences
+        for (const auto& clause : clauses) {
+            for (int lit : clause) {
+                int var = abs(lit);
+                if (lit > 0) literalCount[var]++;
+                else literalCount[-var]--;
+            }
         }
-    }
-
-    // Identify and eliminate pure literals
-    for (int i = 1; i <= numLiterals; ++i) {
-        if (literalCounts[i] > 0) {
-            cout << "[DEBUG] Pure positive literal found: " << i << endl;
-            assignment.push_back(i);
-            clauses.erase(std::remove_if(clauses.begin(), clauses.end(),
-                                         [i](const vector<int>& clause) {
-                                             return std::find(clause.begin(), clause.end(), i) != clause.end();
-                                         }),
-                          clauses.end());
-        } else if (literalCounts[i] < 0) {
-            cout << "[DEBUG] Pure negative literal found: " << -i << endl;
-            assignment.push_back(-i);
-            clauses.erase(std::remove_if(clauses.begin(), clauses.end(),
-                                         [i](const vector<int>& clause) {
-                                             return std::find(clause.begin(), clause.end(), -i) != clause.end();
-                                         }),
-                          clauses.end());
+        
+        vector<vector<int>> newClauses;
+        bool clauseRemoved = false;
+        
+        // Find and process pure literals
+        for (const auto& [var, count] : literalCount) {
+            if (var > 0) { // Only process positive variables
+                // Check if literal appears pure positive
+                if (literalCount.find(-var) == literalCount.end()) {
+                    cout << "[DEBUG] Pure positive literal found: " << var << endl;
+                    assignment.push_back(var);
+                    changed = true;
+                    clauseRemoved = true;
+                }
+                // Check if literal appears pure negative
+                else if (literalCount.find(var) == literalCount.end()) {
+                    cout << "[DEBUG] Pure negative literal found: " << -var << endl;
+                    assignment.push_back(-var);
+                    changed = true;
+                    clauseRemoved = true;
+                }
+            }
         }
-    }
-    cout << "[DEBUG] Pure literal elimination completed. Updated clauses:" << endl;
-    printClauses();
+        
+        // Update clauses if we found pure literals
+        if (clauseRemoved) {
+            // Keep only clauses that don't contain any pure literals
+            for (const auto& clause : clauses) {
+                bool keepClause = true;
+                for (int lit : clause) {
+                    int var = abs(lit);
+                    if ((lit > 0 && literalCount.find(-var) == literalCount.end()) ||
+                        (lit < 0 && literalCount.find(var) == literalCount.end())) {
+                        keepClause = false;
+                        break;
+                    }
+                }
+                if (keepClause) {
+                    newClauses.push_back(clause);
+                }
+            }
+            clauses = newClauses;
+        }
+        
+        cout << "[DEBUG] Current clauses:" << endl;
+        for (const auto& clause : clauses) {
+            for (int lit : clause) {
+                cout << lit << " ";
+            }
+            cout << "0" << endl;
+        }
+        
+    } while (changed && !clauses.empty());
 }
 
 // Utility: Check if there is an empty clause

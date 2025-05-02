@@ -1,19 +1,25 @@
 #ifndef RESOLUTIONSOLVER_H
 #define RESOLUTIONSOLVER_H
 
-
 #include <set>
+#include <vector>
 #include "../general/satsolver.h"
 
 class ResolutionSolver : public SATSolver {
-    public:
-        ResolutionSolver(const std::string& filename);
-        bool solve();
-        bool resolve(const std::set<int>& clause1, const std::set<int>& clause2, std::set<int>& resolvent); 
-        bool isTautology(const std::set<int>& clause) const; // Check if a clause is a tautology
 
-        void printClauseSets(const std::vector<std::set<int>>& clauseSets) const; // Print all clause sets
-        void printClause(const std::set<int>& clause) const; // Print a single clause
+public:
+    // Track which pairs of clauses we've already tried to resolve
+    set<pair<size_t, size_t>> triedPairs;
+    
+    // Helper functions
+    bool isTautology(const set<int>& clause) const;
+    void printClause(const set<int>& clause) const;
+    void printClauseSets(const vector<set<int>>& clauseSets) const;
+
+    bool resolve(const set<int>& clause1, const set<int>& clause2, set<int>& resolvent);
+
+    ResolutionSolver(const string& filename);
+    bool solve();
 };
 
-#endif // RESOLUTIONSOLVER_H
+#endif

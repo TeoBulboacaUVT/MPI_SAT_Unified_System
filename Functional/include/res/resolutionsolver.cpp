@@ -8,7 +8,7 @@
 
 using namespace std;
 
-   ResolutionSolver::ResolutionSolver(const string& filename) : SATSolver(filename) {}
+    ResolutionSolver::ResolutionSolver(const string& filename) : SATSolver(filename) {}
     bool ResolutionSolver::solve() {
         cout << "[DEBUG] Solving using Resolution..." << endl;
 
@@ -144,3 +144,4 @@ using namespace std;
             printClause(clauseSets[i]);
         }
     }
+

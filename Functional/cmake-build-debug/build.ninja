@@ -49,29 +49,40 @@ cmake_ninja_workdir = C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/
 
 build cmake_object_order_depends_target_MPI_SAT_Unified: phony || .
 
-build CMakeFiles/MPI_SAT_Unified.dir/Tests/restest.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Tests/restest.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
-  DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\Tests\restest.cpp.obj.d
+build CMakeFiles/MPI_SAT_Unified.dir/Tests/dptest.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Tests/dptest.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
+  DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\Tests\dptest.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Functional/include
   OBJECT_DIR = CMakeFiles\MPI_SAT_Unified.dir
   OBJECT_FILE_DIR = CMakeFiles\MPI_SAT_Unified.dir\Tests
 
-build CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/include/res/resolutionsolver.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
-  DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\include\res\resolutionsolver.cpp.obj.d
+build CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/include/dp/dpsolver.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
+  DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\include\dp\dpsolver.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Functional/include
   OBJECT_DIR = CMakeFiles\MPI_SAT_Unified.dir
-  OBJECT_FILE_DIR = CMakeFiles\MPI_SAT_Unified.dir\include\res
+  OBJECT_FILE_DIR = CMakeFiles\MPI_SAT_Unified.dir\include\dp
 
 build CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/include/general/satsolver.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
   DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\include\general\satsolver.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Functional/include
   OBJECT_DIR = CMakeFiles\MPI_SAT_Unified.dir
   OBJECT_FILE_DIR = CMakeFiles\MPI_SAT_Unified.dir\include\general
 
 build CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/include/parser/DIMACSParser.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
   DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\include\parser\DIMACSParser.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Functional/include
   OBJECT_DIR = CMakeFiles\MPI_SAT_Unified.dir
   OBJECT_FILE_DIR = CMakeFiles\MPI_SAT_Unified.dir\include\parser
+
+build CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj: CXX_COMPILER__MPI_SAT_Unified_unscanned_Debug C$:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/include/res/resolutionsolver.cpp || cmake_object_order_depends_target_MPI_SAT_Unified
+  DEP_FILE = CMakeFiles\MPI_SAT_Unified.dir\include\res\resolutionsolver.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Lenovo/CLionProjects/MPI_SAT_Unified/Functional/Functional/include
+  OBJECT_DIR = CMakeFiles\MPI_SAT_Unified.dir
+  OBJECT_FILE_DIR = CMakeFiles\MPI_SAT_Unified.dir\include\res
 
 
 # =============================================================================
@@ -81,7 +92,7 @@ build CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj: CXX_CO
 #############################################
 # Link the executable MPI_SAT_Unified.exe
 
-build MPI_SAT_Unified.exe: CXX_EXECUTABLE_LINKER__MPI_SAT_Unified_Debug CMakeFiles/MPI_SAT_Unified.dir/Tests/restest.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj
+build MPI_SAT_Unified.exe: CXX_EXECUTABLE_LINKER__MPI_SAT_Unified_Debug CMakeFiles/MPI_SAT_Unified.dir/Tests/dptest.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\MPI_SAT_Unified.dir
