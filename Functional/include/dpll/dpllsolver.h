@@ -1,4 +1,3 @@
-
 #include "../general/satsolver.h"
 #include <vector>
 #include <set>
@@ -16,7 +15,7 @@ public:
 
 private:
     bool dpllRecursive(std::vector<int>& assignment);
-    int chooseLiteral() const;
+    int chooseLiteral(const std::vector<int>& currentAssignment) const;
     void printAssignment(const std::vector<int>& assignment) const;
 
     std::vector<int> finalAssignment;

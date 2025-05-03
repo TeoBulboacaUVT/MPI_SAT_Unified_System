@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\Tests\\dplltest.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\Tests\\dplltest.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/Tests/dplltest.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj"
+},
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\dp\\dpsolver.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\dp\\dpsolver.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/dp/dpsolver.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj"
+},
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\dpll\\dpllsolver.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\dpll\\dpllsolver.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/dpll/dpllsolver.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/include/dpll/dpllsolver.cpp.obj"
+},
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\general\\satsolver.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\general\\satsolver.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/general/satsolver.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj"
+},
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\parser\\DIMACSParser.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\parser\\DIMACSParser.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/parser/DIMACSParser.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj"
+},
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\res\\resolutionsolver.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\res\\resolutionsolver.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/res/resolutionsolver.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj"
+}
+]

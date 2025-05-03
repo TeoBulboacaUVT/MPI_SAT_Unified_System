@@ -1,0 +1,3 @@
+C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build/CMakeFiles/MPI_SAT_Unified.dir
+C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build/CMakeFiles/edit_cache.dir
+C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build/CMakeFiles/rebuild_cache.dir

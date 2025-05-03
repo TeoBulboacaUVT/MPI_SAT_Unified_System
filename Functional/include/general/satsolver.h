@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <unordered_map>
 
 #pragma once
 
@@ -36,6 +37,20 @@ public:
 protected:
     int numLiterals;
     int numClauses;
+    
+    // Watched literals data structures
+    struct WatchedClause {
+        int watch1;
+        int watch2;
+        vector<int> clause;
+    };
+    
+    vector<WatchedClause> watchedClauses;
+    unordered_map<int, vector<size_t>> literalToClauses; // Maps literals to clause indices
+    
+    void initializeWatchedLiterals();
+    bool updateWatchedLiterals(int literal, vector<int>& assignment);
+    void propagateWatchedLiterals(int literal, vector<int>& assignment);
 };
 
 #endif // SATSOLVER_H

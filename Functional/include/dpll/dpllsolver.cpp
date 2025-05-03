@@ -1,5 +1,7 @@
 #include "./dpllsolver.h"
 #include <iostream>
+#include <map>
+#include <algorithm>
 using namespace std;
 
 DPLLSolver::DPLLSolver(const string& filename) : SATSolver(filename) {}
@@ -54,7 +56,7 @@ bool DPLLSolver::dpllRecursive(vector<int>& assignment) {
     }
 
     // Choose next literal (we can improve this later)
-    int literal = chooseLiteral();
+    int literal = chooseLiteral(assignment);
     if (literal == 0) {
         cout << "[DEBUG] No literal to choose" << endl;
         return false;
@@ -81,11 +83,47 @@ bool DPLLSolver::dpllRecursive(vector<int>& assignment) {
     return false;
 }
 
-int DPLLSolver::chooseLiteral() const {
+int DPLLSolver::chooseLiteral(const std::vector<int>& currentAssignment) const {
+    // Create a map to store literal frequencies
+    std::map<int, int> literalFreq;
+    
+    // Count frequencies of literals in active clauses
     for (const auto& clause : clauses) {
-        if (!clause.empty()) return *clause.begin();
+        for (int lit : clause) {
+            // Skip if this literal is already assigned
+            if (std::find(currentAssignment.begin(), currentAssignment.end(), lit) != currentAssignment.end() ||
+                std::find(currentAssignment.begin(), currentAssignment.end(), -lit) != currentAssignment.end()) {
+                continue;
+            }
+            literalFreq[lit]++;
+        }
     }
-    return 0;
+    
+    if (literalFreq.empty()) {
+        return 0;  // No unassigned literals found
+    }
+    
+    // Find the literal with maximum frequency
+    int maxFreq = 0;
+    int chosenLiteral = 0;
+    
+    for (const auto& pair : literalFreq) {
+        int lit = pair.first;
+        int freq = pair.second;
+        // Consider both positive and negative occurrences
+        int totalFreq = freq;
+        if (literalFreq.find(-lit) != literalFreq.end()) {
+            totalFreq += literalFreq.at(-lit);
+        }
+        
+        if (totalFreq > maxFreq) {
+            maxFreq = totalFreq;
+            // Choose the form (positive/negative) that appears more frequently
+            chosenLiteral = (freq >= literalFreq[-lit]) ? lit : -lit;
+        }
+    }
+    
+    return chosenLiteral;
 }
 
 void DPLLSolver::printAssignment(const vector<int>& assignment) const {

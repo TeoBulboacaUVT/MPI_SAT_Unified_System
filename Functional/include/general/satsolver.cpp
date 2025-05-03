@@ -14,66 +14,147 @@ SATSolver::SATSolver(const string& filename) {
     printClauses();
 }
 
+void SATSolver::initializeWatchedLiterals() {
+    watchedClauses.clear();
+    literalToClauses.clear();
+    
+    for (size_t i = 0; i < clauses.size(); i++) {
+        if (clauses[i].size() >= 2) {
+            WatchedClause wc;
+            wc.watch1 = clauses[i][0];
+            wc.watch2 = clauses[i][1];
+            wc.clause = clauses[i];
+            watchedClauses.push_back(wc);
+            
+            literalToClauses[wc.watch1].push_back(i);
+            literalToClauses[wc.watch2].push_back(i);
+        }
+    }
+}
+
+bool SATSolver::updateWatchedLiterals(int literal, vector<int>& assignment) {
+    vector<size_t> clausesToUpdate = literalToClauses[-literal];
+    bool conflict = false;
+    
+    for (size_t clauseIdx : clausesToUpdate) {
+        WatchedClause& wc = watchedClauses[clauseIdx];
+        
+        // If the other watched literal is true, clause is satisfied
+        if (find(assignment.begin(), assignment.end(), wc.watch1) != assignment.end() ||
+            find(assignment.begin(), assignment.end(), wc.watch2) != assignment.end()) {
+            continue;
+        }
+        
+        // Try to find a new literal to watch
+        bool foundNewWatch = false;
+        for (int lit : wc.clause) {
+            if (lit != wc.watch1 && lit != wc.watch2 &&
+                find(assignment.begin(), assignment.end(), -lit) == assignment.end()) {
+                // Update watched literals
+                if (wc.watch1 == -literal) {
+                    wc.watch1 = lit;
+                } else {
+                    wc.watch2 = lit;
+                }
+                literalToClauses[lit].push_back(clauseIdx);
+                foundNewWatch = true;
+                break;
+            }
+        }
+        
+        if (!foundNewWatch) {
+            // No new watch found, check if clause is unit
+            int unassignedLit = (wc.watch1 == -literal) ? wc.watch2 : wc.watch1;
+            if (find(assignment.begin(), assignment.end(), -unassignedLit) == assignment.end()) {
+                // Unit clause found
+                assignment.push_back(unassignedLit);
+                propagateWatchedLiterals(unassignedLit, assignment);
+            } else {
+                // Conflict found
+                conflict = true;
+                break;
+            }
+        }
+    }
+    
+    return conflict;
+}
+
+void SATSolver::propagateWatchedLiterals(int literal, vector<int>& assignment) {
+    vector<size_t> clausesToUpdate = literalToClauses[-literal];
+    
+    for (size_t clauseIdx : clausesToUpdate) {
+        WatchedClause& wc = watchedClauses[clauseIdx];
+        
+        // If the other watched literal is true, clause is satisfied
+        if (find(assignment.begin(), assignment.end(), wc.watch1) != assignment.end() ||
+            find(assignment.begin(), assignment.end(), wc.watch2) != assignment.end()) {
+            continue;
+        }
+        
+        // Try to find a new literal to watch
+        bool foundNewWatch = false;
+        for (int lit : wc.clause) {
+            if (lit != wc.watch1 && lit != wc.watch2 &&
+                find(assignment.begin(), assignment.end(), -lit) == assignment.end()) {
+                // Update watched literals
+                if (wc.watch1 == -literal) {
+                    wc.watch1 = lit;
+                } else {
+                    wc.watch2 = lit;
+                }
+                literalToClauses[lit].push_back(clauseIdx);
+                foundNewWatch = true;
+                break;
+            }
+        }
+        
+        if (!foundNewWatch) {
+            // No new watch found, check if clause is unit
+            int unassignedLit = (wc.watch1 == -literal) ? wc.watch2 : wc.watch1;
+            if (find(assignment.begin(), assignment.end(), -unassignedLit) == assignment.end()) {
+                // Unit clause found
+                assignment.push_back(unassignedLit);
+                propagateWatchedLiterals(unassignedLit, assignment);
+            }
+        }
+    }
+}
+
 void SATSolver::unitPropagation(vector<int>& assignment) {
     cout << "[DEBUG] Starting unit propagation..." << endl;
+    
+    // Initialize watched literals if not already done
+    if (watchedClauses.empty()) {
+        initializeWatchedLiterals();
+    }
+    
     bool changed;
     do {
         changed = false;
-
-        // Check for direct contradictions in unit clauses
-        for (size_t i = 0; i < clauses.size(); i++) {
-            if (clauses[i].size() == 1) {
-                int unit = clauses[i][0];
-                for (size_t j = i + 1; j < clauses.size(); j++) {
-                    if (clauses[j].size() == 1 && clauses[j][0] == -unit) {
-                        cout << "[DEBUG] Direct contradiction found: " << unit << " and " << -unit << endl;
-                        clauses = {vector<int>()};
-                        return;
-                    }
-                }
-            }
-        }
-
+        
         // Process unit clauses
         for (auto it = clauses.begin(); it != clauses.end();) {
             if (it->size() == 1) {
                 int unit = (*it)[0];
                 cout << "[DEBUG] Propagating unit: " << unit << endl;
                 assignment.push_back(unit);
-
-                // Remove unit clause and simplify remaining clauses
-                it = clauses.erase(it);
-                vector<vector<int>> newClauses;
-
-                for (const auto& clause : clauses) {
-                    // Skip if clause is satisfied
-                    if (find(clause.begin(), clause.end(), unit) != clause.end()) {
-                        continue;
-                    }
-
-                    // Remove negated literals
-                    vector<int> newClause;
-                    for (int lit : clause) {
-                        if (lit != -unit) {
-                            newClause.push_back(lit);
-                        }
-                    }
-
-                    if (!newClause.empty()) {
-                        newClauses.push_back(newClause);
-                    }
+                
+                // Update watched literals
+                if (updateWatchedLiterals(unit, assignment)) {
+                    clauses = {vector<int>()}; // Empty clause indicates UNSAT
+                    return;
                 }
-
-                clauses = newClauses;
+                
+                // Remove unit clause
+                it = clauses.erase(it);
                 changed = true;
-                cout << "[DEBUG] Updated clauses after propagation:" << endl;
-                printClauses();
-                break;
             } else {
                 ++it;
             }
         }
     } while (changed);
+    
     cout << "[DEBUG] Unit propagation completed." << endl;
 }
 
@@ -96,7 +177,9 @@ void SATSolver::eliminatePureLiterals(vector<int>& assignment) {
         bool clauseRemoved = false;
         
         // Find and process pure literals
-        for (const auto& [var, count] : literalCount) {
+        for (const auto& pair : literalCount) {
+            int var = pair.first;
+            int count = pair.second;
             if (var > 0) { // Only process positive variables
                 // Check if literal appears pure positive
                 if (literalCount.find(-var) == literalCount.end()) {
@@ -200,8 +283,6 @@ void SATSolver::printClauses() const {
 vector<vector<int>> SATSolver::getClauses() const {
     return clauses;
 }
-
-
 
 void SATSolver::addToAssignment(int var) {
     assignment.push_back(var);
