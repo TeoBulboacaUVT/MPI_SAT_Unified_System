@@ -13,6 +13,9 @@ public:
     // Returns the satisfying assignment (if any)
     std::vector<int> getAssignment() const;
 
+    // Override base class method
+    void addToAssignment(int literal) override;
+
 private:
     bool dpllRecursive(std::vector<int>& assignment);
     int chooseLiteral(const std::vector<int>& currentAssignment) const;

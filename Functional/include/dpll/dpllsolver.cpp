@@ -66,19 +66,20 @@ bool DPLLSolver::dpllRecursive(vector<int>& assignment) {
 
     // Save current state
     auto savedClauses = clauses;
+    auto savedAssignment = assignment;
     
     // Try positive literal
-    assignment.push_back(literal);
+    addToAssignment(literal);
     if (dpllRecursive(assignment)) return true;
 
     // Restore state and try negative literal
     clauses = savedClauses;
-    assignment.pop_back();
-    assignment.push_back(-literal);
+    assignment = savedAssignment;
+    addToAssignment(-literal);
     if (dpllRecursive(assignment)) return true;
 
     // If both branches failed, backtrack
-    assignment.pop_back();
+    assignment = savedAssignment;
     clauses = savedClauses;
     return false;
 }
@@ -130,4 +131,38 @@ void DPLLSolver::printAssignment(const vector<int>& assignment) const {
     cout << "Assignment: ";
     for (int lit : assignment) cout << lit << " ";
     cout << endl;
+}
+
+void DPLLSolver::addToAssignment(int literal) {
+    // Add the literal to the assignment
+    assignment.push_back(literal);
+    
+    // Create a new vector for updated clauses
+    vector<vector<int>> newClauses;
+    
+    for (const auto& clause : clauses) {
+        // Check if clause is satisfied by the literal
+        bool isSatisfied = false;
+        vector<int> newClause;
+        
+        for (int lit : clause) {
+            if (lit == literal) {
+                // Clause is satisfied by this literal, skip it
+                isSatisfied = true;
+                break;
+            }
+            if (lit != -literal) {
+                // Keep literals that aren't the negation of our assignment
+                newClause.push_back(lit);
+            }
+        }
+        
+        // Only add non-satisfied and non-empty clauses
+        if (!isSatisfied && !newClause.empty()) {
+            newClauses.push_back(newClause);
+        }
+    }
+    
+    // Update clauses
+    clauses = newClauses;
 }
