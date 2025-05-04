@@ -20,6 +20,9 @@ private:
     bool dpllRecursive(std::vector<int>& assignment);
     int chooseLiteral(const std::vector<int>& currentAssignment) const;
     void printAssignment(const std::vector<int>& assignment) const;
+    bool isClauseSatisfied(const std::vector<int>& clause, const std::vector<int>& currentAssignment) const;
+    void updateClauses(const std::vector<int>& currentAssignment);
 
     std::vector<int> finalAssignment;
+    std::vector<std::vector<int>> originalClauses;  // Store original clauses for verification
 };
