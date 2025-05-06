@@ -1,9 +1,9 @@
 [
 {
   "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
-  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\Tests\\dplltest.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\Tests\\dplltest.cpp\"",
-  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/Tests/dplltest.cpp",
-  "output": "CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj"
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\Tests\\cdcltest.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\Tests\\cdcltest.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/Tests/cdcltest.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj"
 },
 {
   "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
@@ -34,5 +34,11 @@
   "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\res\\resolutionsolver.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\res\\resolutionsolver.cpp\"",
   "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/res/resolutionsolver.cpp",
   "output": "CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj"
+},
+{
+  "directory": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp -g -std=gnu++1z -o CMakeFiles\\MPI_SAT_Unified.dir\\include\\cdcl\\cdclsolver.cpp.obj -c \"C:\\Users\\Lenovo\\New folder\\MPI_SAT_Unified_System\\Functional\\include\\cdcl\\cdclsolver.cpp\"",
+  "file": "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/cdcl/cdclsolver.cpp",
+  "output": "CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj"
 }
 ]

@@ -12,11 +12,28 @@ bool isFileAccessible(const string& filename) {
     return file.good();
 }
 
+string getFileNameFromPath(const string& path) {
+    size_t lastSlash = path.find_last_of("/\\");
+    if (lastSlash != string::npos) {
+        return path.substr(lastSlash + 1);
+    }
+    return path;
+}
 
 int main() {
     vector<string> testFiles2 = {
-        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIM\\aim-50-1_6-no-1.cnf"
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-1.cnf",
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-2.cnf",
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-3.cnf",
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-4.cnf"
     };
+
+    // Open results file in append mode
+    ofstream resultsFile("./logs/dpresults.txt", ios::app);
+    if (!resultsFile.is_open()) {
+        cout << "Error: Could not open results file for writing" << endl;
+        return 1;
+    }
 
     for (const auto& filename : testFiles2) {
         try {
@@ -45,9 +62,12 @@ int main() {
             bool result = solver.solve_new();
             auto assignment = solver.getAssignment();
             
-            
             auto end = chrono::high_resolution_clock::now();
             auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+
+            // Write results to file
+            resultsFile << getFileNameFromPath(filename) << endl;
+            resultsFile << duration.count() << endl;
 
             cout << "\nSolving time: " << duration.count() << "ms" << endl;
             
@@ -83,5 +103,6 @@ int main() {
         cout << "----------------------------------------\n" << endl;
     }
 
+    resultsFile.close();
     return 0;
 }

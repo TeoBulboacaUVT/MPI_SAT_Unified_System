@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/Tests/dplltest.cpp" "CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj" "gcc" "CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj.d"
+  "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/Tests/cdcltest.cpp" "CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj" "gcc" "CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj.d"
+  "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/cdcl/cdclsolver.cpp" "CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj" "gcc" "CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj.d"
   "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/dp/dpsolver.cpp" "CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj" "gcc" "CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj.d"
   "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/dpll/dpllsolver.cpp" "CMakeFiles/MPI_SAT_Unified.dir/include/dpll/dpllsolver.cpp.obj" "gcc" "CMakeFiles/MPI_SAT_Unified.dir/include/dpll/dpllsolver.cpp.obj.d"
   "C:/Users/Lenovo/New folder/MPI_SAT_Unified_System/Functional/include/general/satsolver.cpp" "CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj" "gcc" "CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj.d"

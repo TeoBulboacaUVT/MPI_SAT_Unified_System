@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj"
-  "CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj.d"
+  "CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj"
+  "CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj.d"
+  "CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj"
+  "CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj.d"
   "CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj"
   "CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj.d"
   "CMakeFiles/MPI_SAT_Unified.dir/include/dpll/dpllsolver.cpp.obj"

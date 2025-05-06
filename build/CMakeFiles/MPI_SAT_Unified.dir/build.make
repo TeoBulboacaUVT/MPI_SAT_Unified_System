@@ -71,20 +71,20 @@ include CMakeFiles/MPI_SAT_Unified.dir/flags.make
 CMakeFiles/MPI_SAT_Unified.dir/codegen:
 .PHONY : CMakeFiles/MPI_SAT_Unified.dir/codegen
 
-CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/flags.make
-CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp
-CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj: C:/Users/Lenovo/New\ folder/MPI_SAT_Unified_System/Functional/Tests/dplltest.cpp
-CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj -MF CMakeFiles\MPI_SAT_Unified.dir\Tests\dplltest.cpp.obj.d -o CMakeFiles\MPI_SAT_Unified.dir\Tests\dplltest.cpp.obj -c "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\Tests\dplltest.cpp"
+CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/flags.make
+CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp
+CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj: C:/Users/Lenovo/New\ folder/MPI_SAT_Unified_System/Functional/Tests/cdcltest.cpp
+CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj -MF CMakeFiles\MPI_SAT_Unified.dir\Tests\cdcltest.cpp.obj.d -o CMakeFiles\MPI_SAT_Unified.dir\Tests\cdcltest.cpp.obj -c "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\Tests\cdcltest.cpp"
 
-CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\Tests\dplltest.cpp" > CMakeFiles\MPI_SAT_Unified.dir\Tests\dplltest.cpp.i
+CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\Tests\cdcltest.cpp" > CMakeFiles\MPI_SAT_Unified.dir\Tests\cdcltest.cpp.i
 
-CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\Tests\dplltest.cpp" -o CMakeFiles\MPI_SAT_Unified.dir\Tests\dplltest.cpp.s
+CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\Tests\cdcltest.cpp" -o CMakeFiles\MPI_SAT_Unified.dir\Tests\cdcltest.cpp.s
 
 CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/flags.make
 CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp
@@ -161,29 +161,46 @@ CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\include\res\resolutionsolver.cpp" -o CMakeFiles\MPI_SAT_Unified.dir\include\res\resolutionsolver.cpp.s
 
+CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/flags.make
+CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/includes_CXX.rsp
+CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj: C:/Users/Lenovo/New\ folder/MPI_SAT_Unified_System/Functional/include/cdcl/cdclsolver.cpp
+CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj: CMakeFiles/MPI_SAT_Unified.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj -MF CMakeFiles\MPI_SAT_Unified.dir\include\cdcl\cdclsolver.cpp.obj.d -o CMakeFiles\MPI_SAT_Unified.dir\include\cdcl\cdclsolver.cpp.obj -c "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\include\cdcl\cdclsolver.cpp"
+
+CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\include\cdcl\cdclsolver.cpp" > CMakeFiles\MPI_SAT_Unified.dir\include\cdcl\cdclsolver.cpp.i
+
+CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\Functional\include\cdcl\cdclsolver.cpp" -o CMakeFiles\MPI_SAT_Unified.dir\include\cdcl\cdclsolver.cpp.s
+
 # Object files for target MPI_SAT_Unified
 MPI_SAT_Unified_OBJECTS = \
-"CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj" \
+"CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj" \
 "CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj" \
 "CMakeFiles/MPI_SAT_Unified.dir/include/dpll/dpllsolver.cpp.obj" \
 "CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj" \
 "CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj" \
-"CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj"
+"CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj" \
+"CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj"
 
 # External object files for target MPI_SAT_Unified
 MPI_SAT_Unified_EXTERNAL_OBJECTS =
 
-MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj
+MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/include/dp/dpsolver.cpp.obj
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/include/dpll/dpllsolver.cpp.obj
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/include/general/satsolver.cpp.obj
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/include/parser/DIMACSParser.cpp.obj
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/include/res/resolutionsolver.cpp.obj
+MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/build.make
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/linkLibs.rsp
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/objects1.rsp
 MPI_SAT_Unified.exe: CMakeFiles/MPI_SAT_Unified.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable MPI_SAT_Unified.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Lenovo\New folder\MPI_SAT_Unified_System\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable MPI_SAT_Unified.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\MPI_SAT_Unified.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

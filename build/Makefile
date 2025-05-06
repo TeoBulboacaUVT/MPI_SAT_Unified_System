@@ -135,29 +135,53 @@ MPI_SAT_Unified/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/build
 .PHONY : MPI_SAT_Unified/fast
 
-Tests/dplltest.obj: Tests/dplltest.cpp.obj
-.PHONY : Tests/dplltest.obj
+Tests/cdcltest.obj: Tests/cdcltest.cpp.obj
+.PHONY : Tests/cdcltest.obj
 
 # target to build an object file
-Tests/dplltest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.obj
-.PHONY : Tests/dplltest.cpp.obj
+Tests/cdcltest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.obj
+.PHONY : Tests/cdcltest.cpp.obj
 
-Tests/dplltest.i: Tests/dplltest.cpp.i
-.PHONY : Tests/dplltest.i
+Tests/cdcltest.i: Tests/cdcltest.cpp.i
+.PHONY : Tests/cdcltest.i
 
 # target to preprocess a source file
-Tests/dplltest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.i
-.PHONY : Tests/dplltest.cpp.i
+Tests/cdcltest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.i
+.PHONY : Tests/cdcltest.cpp.i
 
-Tests/dplltest.s: Tests/dplltest.cpp.s
-.PHONY : Tests/dplltest.s
+Tests/cdcltest.s: Tests/cdcltest.cpp.s
+.PHONY : Tests/cdcltest.s
 
 # target to generate assembly for a file
-Tests/dplltest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/Tests/dplltest.cpp.s
-.PHONY : Tests/dplltest.cpp.s
+Tests/cdcltest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/Tests/cdcltest.cpp.s
+.PHONY : Tests/cdcltest.cpp.s
+
+include/cdcl/cdclsolver.obj: include/cdcl/cdclsolver.cpp.obj
+.PHONY : include/cdcl/cdclsolver.obj
+
+# target to build an object file
+include/cdcl/cdclsolver.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.obj
+.PHONY : include/cdcl/cdclsolver.cpp.obj
+
+include/cdcl/cdclsolver.i: include/cdcl/cdclsolver.cpp.i
+.PHONY : include/cdcl/cdclsolver.i
+
+# target to preprocess a source file
+include/cdcl/cdclsolver.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.i
+.PHONY : include/cdcl/cdclsolver.cpp.i
+
+include/cdcl/cdclsolver.s: include/cdcl/cdclsolver.cpp.s
+.PHONY : include/cdcl/cdclsolver.s
+
+# target to generate assembly for a file
+include/cdcl/cdclsolver.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\MPI_SAT_Unified.dir\build.make CMakeFiles/MPI_SAT_Unified.dir/include/cdcl/cdclsolver.cpp.s
+.PHONY : include/cdcl/cdclsolver.cpp.s
 
 include/dp/dpsolver.obj: include/dp/dpsolver.cpp.obj
 .PHONY : include/dp/dpsolver.obj
@@ -289,9 +313,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... MPI_SAT_Unified
-	@echo ... Tests/dplltest.obj
-	@echo ... Tests/dplltest.i
-	@echo ... Tests/dplltest.s
+	@echo ... Tests/cdcltest.obj
+	@echo ... Tests/cdcltest.i
+	@echo ... Tests/cdcltest.s
+	@echo ... include/cdcl/cdclsolver.obj
+	@echo ... include/cdcl/cdclsolver.i
+	@echo ... include/cdcl/cdclsolver.s
 	@echo ... include/dp/dpsolver.obj
 	@echo ... include/dp/dpsolver.i
 	@echo ... include/dp/dpsolver.s
