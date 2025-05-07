@@ -21,21 +21,21 @@ string getFileNameFromPath(const string& path) {
 }
 
 int main() {
+    vector<string> testFiles = {
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\extra\\ex.cnf",
+    };
     vector<string> testFiles2 = {
-        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-1.cnf",
-        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-2.cnf",
-        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-3.cnf",
-        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\AIM 50\\aim-50-1_6-no-4.cnf"
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\extra\\twsat.cnf",
     };
 
     // Open results file in append mode
-    ofstream resultsFile("./logs/dpresults.txt", ios::app);
+    ofstream resultsFile("dpresults.txt", ios::app);
     if (!resultsFile.is_open()) {
         cout << "Error: Could not open results file for writing" << endl;
         return 1;
     }
 
-    for (const auto& filename : testFiles2) {
+    for (const auto& filename : testFiles) {
         try {
             if (!isFileAccessible(filename)) {
                 cout << "Error: Cannot access file " << filename << endl;

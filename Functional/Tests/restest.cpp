@@ -10,7 +10,9 @@ using namespace std;
 
 int main() {
     // Specify the path to a DIMACS CNF file
-    string filename = "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\tenunsat.cnf";
+    string filename = "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\extra\\ex.cnf";
+
+
 
     // Create an instance of ResolutionSolver
     ResolutionSolver solver(filename);
@@ -19,18 +21,17 @@ int main() {
     cout << "Testing Resolution Solver on file: " << filename << endl;
 
     // Start the clock
-    auto startTime = chrono::high_resolution_clock::now();
+    auto start = chrono::high_resolution_clock::now();
 
     // Call the solver
     bool result = solver.solve();
 
     // Stop the clock
-    auto endTime = chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
 
     // Calculate and print the elapsed time
-    auto duration = chrono::duration<double>(endTime - startTime).count();
-    cout << fixed << setprecision(5);
-    cout << "Execution time: " << duration << " seconds." << endl;
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+    cout << "Execution time: " << duration<< endl;
 
     // Output the result
     if (result) {

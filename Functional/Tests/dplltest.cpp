@@ -13,6 +13,14 @@ bool isFileAccessible(const string& filename) {
     return file.good();
 }
 
+string getFileNameFromPath(const string& path) {
+    size_t lastSlash = path.find_last_of("/\\");
+    if (lastSlash != string::npos) {
+        return path.substr(lastSlash + 1);
+    }
+    return path;
+}
+
 bool verifySolution(const vector<int>& assignment, const vector<vector<int>>& originalClauses) {
     set<int> assigned;
     for (int lit : assignment) {
@@ -34,8 +42,16 @@ bool verifySolution(const vector<int>& assignment, const vector<vector<int>>& or
 
 int main() {
     vector<string> testFiles = {
-        "C:\\Users\\Lenovo\\Desktop\\UVT\\Sem 2\\MPI Project\\New folder\\Functional\\DIM\\satdim2.cnf"
+        "C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\DIMACS\\extra\\ex.cnf",
     };
+
+
+    // Open results file in append mode
+    ofstream resultsFile("C:\\Users\\Lenovo\\CLionProjects\\MPI_SAT_Unified\\Functional\\Tests\\logs\\dpll_result.txt", ios::app);
+    if (!resultsFile.is_open()) {
+        cout << "Error: Could not open results file for writing" << endl;
+        return 1;
+    }
 
     for (const auto& filename : testFiles) {
         try {
@@ -62,8 +78,13 @@ int main() {
             auto assignment = solver.getAssignment();
 
             auto end = chrono::high_resolution_clock::now();
-            auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
-            cout << "Solving time: " << duration << "ms" << endl;
+            auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+
+            // Write results to file
+            resultsFile << getFileNameFromPath(filename) << endl;
+            resultsFile << duration.count() << endl;
+
+            cout << "Solving time: " << duration.count() << "ms" << endl;
 
             if (result) {
                 bool valid = verifySolution(assignment, originalClauses);
@@ -78,13 +99,19 @@ int main() {
         }
         catch (const std::bad_alloc& e) {
             std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+            return 3;
         }
         catch (const exception& e) {
             cout << "Exception: " << e.what() << endl;
+            return 1;
         }
         catch (...) {
             cout << "Unknown error occurred." << endl;
+            return 2;
         }
+        cout << "----------------------------------------\n" << endl;
     }
+
+    resultsFile.close();
     return 0;
 }
