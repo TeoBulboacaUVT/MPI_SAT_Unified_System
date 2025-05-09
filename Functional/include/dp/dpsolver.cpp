@@ -8,43 +8,6 @@
 using namespace std;
 
 
-bool DPSolver::solve() {
-        // Apply unit propagation and pure literal elimination
-        unitPropagation(assignment);
-        eliminatePureLiterals(assignment);
-
-        // If all clauses are satisfied
-        if (clauses.empty()) return true;
-
-        // If any clause is empty, contradiction
-        for (const auto& clause : clauses) {
-            if (clause.empty()) return false;
-        }
-
-        // Pick a variable to branch on (e.g., first literal of first clause)
-        int var = abs(clauses[0][0]);
-
-        // Save state
-        auto savedClauses = clauses;
-        auto savedAssignment = assignment;
-
-        // Try assigning var true
-        addToAssignment(var);
-        if (solve()) return true;
-
-        // Restore state and try assigning var false
-        clauses = savedClauses;
-        assignment = savedAssignment;
-        addToAssignment(-var);
-        if (solve()) return true;
-
-        // Restore state and return false
-        clauses = savedClauses;
-        assignment = savedAssignment;
-        return false;
-    }
-
-
 vector<vector<int>> DPSolver::singleStep(const vector<vector<int>>& clauseSet) {
     vector<vector<int>> result = clauseSet;
 
@@ -148,7 +111,7 @@ vector<vector<int>> DPSolver::singleStep(const vector<vector<int>>& clauseSet) {
         return assignment;
     }
 
-    bool DPSolver::solve_new() {
+    bool DPSolver::solve() {
     cout << "[DEBUG] Starting Davis-Putnam solver..." << endl;
 
     // Main solving loop

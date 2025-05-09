@@ -1,0 +1,5 @@
+c 3-SAT example used throughout the paper
+p cnf 4 3
+1 -2 3 0
+-1 2 -4 0
+2 3 4 0

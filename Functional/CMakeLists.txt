@@ -7,11 +7,10 @@ set(CMAKE_CXX_STANDARD 20)
 include_directories(${CMAKE_SOURCE_DIR}/Functional/include)
 
 add_executable(MPI_SAT_Unified
-        Tests/dptest.cpp
+        main.cpp
         include/dp/dpsolver.cpp
         include/dpll/dpllsolver.cpp
         include/general/satsolver.cpp
         include/parser/DIMACSParser.cpp
         include/res/resolutionsolver.cpp
-        include/cdcl/cdclsolver.cpp
 )

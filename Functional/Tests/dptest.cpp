@@ -59,7 +59,7 @@ int main() {
                 cout << "Warning: Large formula detected. This might take a while..." << endl;
             }
             
-            bool result = solver.solve_new();
+            bool result = solver.solve();
             auto assignment = solver.getAssignment();
             
             auto end = chrono::high_resolution_clock::now();

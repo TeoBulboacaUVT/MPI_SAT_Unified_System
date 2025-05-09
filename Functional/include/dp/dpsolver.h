@@ -28,6 +28,4 @@ public:
     bool verifySolution(const vector<int>& assignment, const vector<vector<int>>& originalClauses);
 
     bool solve();
-
-    bool solve_new();
 };

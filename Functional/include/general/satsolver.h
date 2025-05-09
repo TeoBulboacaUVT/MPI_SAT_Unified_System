@@ -23,6 +23,7 @@ public:
         printClauses();
         cout << "Number of clauses: " << clauses.size() << endl;
     }
+    bool solve();
     bool checkContradictions(); // Added function to check for contradictions
 
     // Fix the getter functions
